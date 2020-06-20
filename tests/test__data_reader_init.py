@@ -6,8 +6,8 @@ import pytest
 
 from pydi.models import StringFrame
 
-DATA_FILENAME = '../data/ipps_drg_top_100_fy2011.csv'
-SCHEMA_FILENAME = '../data/ipps_drg_top_100_fy2011.xlsx'
+DATA_FILENAME = './data/ipps_drg_top_100_fy2011.csv'
+SCHEMA_FILENAME = './data/ipps_drg_top_100_fy2011.xlsx'
 
 
 @pytest.fixture()
