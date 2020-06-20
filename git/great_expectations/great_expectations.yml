@@ -11,7 +11,17 @@ config_version: 2.0
 # Datasources tell Great Expectations where your data lives and how to get it.
 # You can use the CLI command `great_expectations datasource new` to help you
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/features/datasource.html
-datasources: {}
+datasources:
+  bsa_carrier_line__dir:
+    class_name: PandasDatasource
+    module_name: great_expectations.datasource
+    batch_kwargs_generators:
+      subdir_reader:
+        class_name: SubdirReaderBatchKwargsGenerator
+        base_directory: /Users/bkraft/projects/data_integrity/data/medicare/bsa_carrier_line
+    data_asset_type:
+      module_name: great_expectations.dataset
+      class_name: PandasDataset
 
 # This config file supports variable substitution which enables: 1) keeping
 # secrets out of source control & 2) environment-based configuration changes
@@ -111,5 +121,5 @@ data_docs_sites:
       class_name: DefaultSiteIndexBuilder
 
 anonymous_usage_statistics:
-  enabled: true
   data_context_id: ad0ce625-a65c-4af2-85bd-f658479fce56
+  enabled: true
